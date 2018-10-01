@@ -4,8 +4,13 @@ package Modelo;
 
 import java.util.*;
 import Controlador.DTOAlgoritmos;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * 
@@ -28,15 +33,28 @@ public class EscritorTxT implements IEscritor {
      * @return
      */
     public boolean escribir(DTOAlgoritmos dto) {
-        String print = "";
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
-        LocalDateTime now = LocalDateTime.now();  
-        print += "Fecha y Hora: "+dtf.format(now)+"\n";
-        print += "Frase de Origen: "+ dto.getFraseOrigen()+ "\n******************************\n";
-        for (int i=0;i<dto.getResultados().size();i++){
-            print += dto.getResultados().get(i) + "\n******************************\n";
+        LocalDateTime now = LocalDateTime.now(); 
+        try {
+            String dir = System.getProperty("user.home") + "/Desktop/";
+            PrintWriter writer = new PrintWriter(dir+"Resultados.txt", "UTF-8");
+            writer.println("Fecha y Hora: "+dtf.format(now));
+            writer.println("Frase de Origen: "+ dto.getFraseOrigen());
+            writer.println("Cifra: "+String.valueOf(dto.getCifra()));
+            writer.println("Palabra Clave: "+dto.getPalabraclave());
+            writer.println("\n******************************\n");
+            for (int i=0;i<dto.getResultados().size();i++){
+                writer.println(dto.getResultados().get(i));
+                writer.println("\n******************************\n");
+            }
+            writer.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(EscritorTxT.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(EscritorTxT.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
-        System.out.println(print);
         return true;
     }
 

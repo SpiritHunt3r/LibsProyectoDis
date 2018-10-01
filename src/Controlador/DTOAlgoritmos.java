@@ -1,12 +1,13 @@
 package Controlador;
 
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
  * 
  */
-public class DTOAlgoritmos {
+public class DTOAlgoritmos implements Serializable {
 
     /**
      * Default constructor
