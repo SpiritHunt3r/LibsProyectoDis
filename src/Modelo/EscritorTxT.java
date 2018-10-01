@@ -43,7 +43,7 @@ public class EscritorTxT implements IEscritor {
             writer.println("Cifra: "+String.valueOf(dto.getCifra()));
             writer.println("Palabra Clave: "+dto.getPalabraclave());
             writer.println("\n******************************\n");
-            for (int i=0;i<dto.getResultados().size();i++){
+            for (int i=0;i<dto.getAlgoritmosSelec().size();i++){
                 writer.println(dto.getResultados().get(i));
                 writer.println("\n******************************\n");
             }

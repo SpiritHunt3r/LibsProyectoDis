@@ -58,7 +58,7 @@ public class EscritorXML implements IEscritor{
             writablesheet1.addCell(Cifra);
             writablesheet1.addCell(Palabra);
             writablesheet1.addCell(Separador);
-            for (int i=0;i<dto.getResultados().size();i++){
+            for (int i=0;i<dto.getAlgoritmosSelec().size();i++){
                 R = new Label (0,cell,dto.getResultados().get(i));
                 cell++;
                 Separador = new Label (0,cell,"******************************");
