@@ -55,6 +55,8 @@ public class DTOAlgoritmos implements Serializable {
     private List<String> lasSalidas;
     private int cifra;
     private String palabraclave;
+    private String modoFrase;
+    private int sizeFrase;
 
     public int getElAlfabeto() {
         return elAlfabeto;
@@ -135,6 +137,22 @@ public class DTOAlgoritmos implements Serializable {
 
     public void setPalabraclave(String palabraclave) {
         this.palabraclave = palabraclave;
+    }
+
+    public String getModoFrase() {
+        return modoFrase;
+    }
+
+    public void setModoFrase(String modoFrase) {
+        this.modoFrase = modoFrase;
+    }
+
+    public int getSizeFrase() {
+        return sizeFrase;
+    }
+
+    public void setSizeFrase(int sizeFrase) {
+        this.sizeFrase = sizeFrase;
     }
     
     
