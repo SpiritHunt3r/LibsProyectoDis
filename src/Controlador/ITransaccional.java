@@ -23,12 +23,6 @@ public interface ITransaccional {
     public boolean modificar(Object obj);
 
     /**
-     * @param llave 
-     * @return
-     */
-    public Object consultar(Object llave);
-
-    /**
      * @param obj 
      * @return
      */
