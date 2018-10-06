@@ -33,19 +33,7 @@ public class DaoAlfabetos implements IValidable,ITransaccional{
      */
     public DaoAlfabetos() {
         
-        try {
-            BufferedReader file = new BufferedReader( new FileReader(workingDir), 1024);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(DaoAlfabetos.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            this.workbook = Workbook.getWorkbook(new File(workingDir));
-        } catch (IOException ex) {
-            Logger.getLogger(DaoAlfabetos.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (BiffException ex) {
-            Logger.getLogger(DaoAlfabetos.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        this.Alfabetos = workbook.getSheet(0);
+        refresh();
         
         System.out.println();
         System.out.println("******************************");
@@ -205,6 +193,28 @@ public class DaoAlfabetos implements IValidable,ITransaccional{
         }
     }
     return false;
+    }
+    
+    public void refresh(){
+        try{
+            workbook.close();
+        }
+        catch (Exception e){
+            
+        }
+        try {
+            BufferedReader file = new BufferedReader( new FileReader(workingDir), 1024);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(DaoAlfabetos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            this.workbook = Workbook.getWorkbook(new File(workingDir));
+        } catch (IOException ex) {
+            Logger.getLogger(DaoAlfabetos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (BiffException ex) {
+            Logger.getLogger(DaoAlfabetos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.Alfabetos = workbook.getSheet(0);
     }
     
    
