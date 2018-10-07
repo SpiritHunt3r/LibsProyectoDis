@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controlador;
+package Comunicacion;
 
 /**
  *
  * @author ayma-93
  */
 public enum TipoAccion {
-    PROCESAR_PETICION,ESCRIBIR,GET_SIMBOLOS_ALFABETO
+    PROCESAR_PETICION,GET_SIMBOLOS_ALFABETO,CARGAR_ALFABETO,GET_DTO
 }

@@ -1,13 +1,14 @@
 package Controlador;
 
 
+
 import java.io.Serializable;
 import java.util.*;
 
 /**
  * 
  */
-public class DTOAlgoritmos implements Serializable {
+public class DTOAlgoritmos implements Serializable  {
 
     /**
      * Default constructor
@@ -57,7 +58,6 @@ public class DTOAlgoritmos implements Serializable {
     private String palabraclave;
     private String modoFrase;
     private int sizeFrase;
-    private TipoAccion accion;
     
     public int getElAlfabeto() {
         return elAlfabeto;
@@ -154,14 +154,6 @@ public class DTOAlgoritmos implements Serializable {
 
     public void setSizeFrase(int sizeFrase) {
         this.sizeFrase = sizeFrase;
-    }
-
-    public TipoAccion getAccion() {
-        return accion;
-    }
-
-    public void setAccion(TipoAccion accion) {
-        this.accion = accion;
     }
    
 }
